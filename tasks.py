@@ -76,7 +76,7 @@ class Browser(Selenium):
             self.click_button(search_button)
             search_bar = self.find_element("name:q")
             self.wait_until_element_is_enabled(search_bar)
-            self.click_element(search_bar)
+            #self.click_element(search_bar)
             self.input_text(search_bar, search_query)
             search_button = self.find_elements("data:element:search-submit-button")
             self.click_button(search_button)
@@ -247,7 +247,7 @@ class Browser(Selenium):
     def get_picture(self, element, title):
         logger.info('Getting picture from article')
         picture = self.find_element("class:promo-media", element)
-        picture_filename = r"output/pictures/" + title.replace(" ", "_") + ".png"
+        picture_filename = r"output/" + title.replace(" ", "_") + ".png"
         picture.screenshot(picture_filename)
         logger.info('Picture saved')
         return picture_filename
@@ -302,7 +302,7 @@ def run_automation(search_query:str, sort_by:str, no_of_months:int, topics:list)
     browser.filter_topics(topics)
     browser.find_results(no_of_months)
 
-    path = str(pathlib.Path(__file__).parent.resolve()) + r"\output\results.xlsx"
+    path = str(pathlib.Path(__file__).parent.resolve()) + r"/output/results.xlsx"
 
     excel_file = Excel()
     excel_file.read_excel_worksheet(path, "data")
