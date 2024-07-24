@@ -1,0 +1,14 @@
+[
+  {
+      "payload": {
+         "search_query": "Trump",
+         "sort_by": "Newest",
+         "no_of_months": 2,
+         "topic1": "politics",
+         "topic2": "california"
+      },
+      "files": {
+          "orders.xlsx": "orders.xlsx"
+      }
+  }
+]
