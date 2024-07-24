@@ -72,13 +72,13 @@ class Browser(Selenium):
         logger.info('Started searching')
         self.search = search_query
         try:
-            search_button = self.find_element("//html/body/ps-header/header/div[2]/button")
+            search_button = self.find_elements("data:element:search-button")
             self.click_button(search_button)
-            search_bar = self.find_element("//html/body/ps-header/header/div[2]/div[2]/form/label/input")
+            search_bar = self.find_element("name:q")
             self.wait_until_element_is_enabled(search_bar)
             self.click_element(search_bar)
             self.input_text(search_bar, search_query)
-            search_button = self.find_element("//html/body/ps-header/header/div[2]/div[2]/form/button")
+            search_button = self.find_elements("data:element:search-submit-button")
             self.click_button(search_button)
         finally:
             self.tries_counter = 0
