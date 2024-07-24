@@ -279,7 +279,7 @@ class Browser(Selenium):
 @task
 def setup():
     item = workitems.inputs.current
-    payload = item.payload
+    payload = dict(item.payload)
     
     arg1 = payload.get("search_query")
     arg2 = payload.get("sort_by")
